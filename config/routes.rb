@@ -53,4 +53,11 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  
+  if Rails.env.in? %(test qa development demo)
+    namespace :qa do
+      get 'clean-database', controller: 'database_cleaner'
+    end
+  end
+
 end
