@@ -5,14 +5,14 @@ default: &default
 
 development:
   <<: *default
-  database: dummy-backend_development
+  database: dummy_backend_development
 
 test:
   <<: *default
-  database: dummy-backend_test
+  database: dummy_backend_test
 
 production:
   <<: *default
-  database: dummy-backend_production
+  database: dummy_backend_production
   username: dummy-backend
-  password: <%= ENV['dummy-backend_DATABASE_PASSWORD'] %>
+  password: <%= ENV['dummy_backend_DATABASE_PASSWORD'] %>
