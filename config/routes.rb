@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   root 'application#hello'
+
+
+  get '/api/name' => 'application#hello'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -54,7 +58,7 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-  
+
   if Rails.env.in? %(test qa development demo)
     namespace :qa do
       get 'clean-database', controller: 'database_cleaner'
