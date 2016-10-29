@@ -2,11 +2,10 @@ language: ruby
 rvm:
   - 2.3.0
 before_script:
-  - cp config/database.example.yml config/database.yml
-  - cp config/secrets.example.yml config/secrets.yml
-  - psql -c 'create database dummy-backend_test;' -U postgres
-  - bundle exec rake db:migrate --trace
-  - bundle exec rake db:test:prepare --trace
+  - curl https://raw.githubusercontent.com/dkniffin/dummy-qa/master/bin/before-test.sh -o /tmp/before-test.sh
+  - bash /tmp/before-test.sh
 script:
   - bundle exec rubocop
   - bundle exec rspec
+  - curl -s https://raw.githubusercontent.com/dkniffin/dummy-qa/master/bin/test.sh -o /tmp/test.sh
+  - bash /tmp/test.sh
