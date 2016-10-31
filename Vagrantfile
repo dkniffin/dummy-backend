@@ -10,7 +10,7 @@ Vagrant.configure 2 do |config|
   # private_ip = "192.168.13.37"
   # config.vm.network(:private_network, :ip => private_ip)
 
-# TODO free me from the bonds of this ip
+  # TODO: free me from the bonds of this ip
   config.vm.network 'forwarded_port', guest: 443, host: 8080
   config.vm.network 'private_network', type: 'dhcp'
 
