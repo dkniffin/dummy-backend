@@ -6,3 +6,6 @@ ADD Gemfile /dummy-backend/Gemfile
 ADD Gemfile.lock /dummy-backend/Gemfile.lock
 RUN bundle install
 ADD . /dummy-backend
+RUN cp config/secrets.example.yml config/secrets.yml
+RUN cat config/secrets.yml
+RUN cp config/database.example.yml config/database.yml
